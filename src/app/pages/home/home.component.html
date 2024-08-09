@@ -1,0 +1,22 @@
+<div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner"> 
+      <div class="container py-5 ">
+          <div class="carousel-item vh-100 text-center  " *ngFor="let user of users; let i = index"   [class.active]="i === currentUserIndex" >
+            <a [routerLink]="['/usercard', user.id]">
+              <app-usersdata [user]="user"></app-usersdata>
+            </a>
+
+          </div>
+      </div>
+ </div>
+   
+  <button class="carousel-control-prev " (click)="previousUser()" [disabled]="currentUserIndex == 0 " type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon text-bg-dark" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next"  (click)="nextUser()" [disabled]="currentUserIndex == users.length-1" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon text-bg-dark" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+
+</div>
